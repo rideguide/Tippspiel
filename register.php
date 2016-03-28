@@ -12,7 +12,7 @@ require("db_connect.php");
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Signin Template for Bootstrap</title>
+    <title>Tippspiel</title>
 
     <!-- Bootstrap core CSS -->
 		<link href="bootstrap-3.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -60,8 +60,6 @@ require("db_connect.php");
 				$password = mysql_real_escape_string($password);
 				$password2 = mysql_real_escape_string($password2);
 				
-				$password = hash('sha256', $password);
-				$password2 = hash('sha256', $password2);
 				
 				if($username == "")
 				{
@@ -87,6 +85,9 @@ require("db_connect.php");
 					}
 					else
 					{
+						
+					$password = hash('sha256', $password);
+					$password2 = hash('sha256', $password2);
 						$query = mysql_query("INSERT INTO users (userName, userPassword) VALUES ('$username', '$password')");
 						
 						header('location: index.php');

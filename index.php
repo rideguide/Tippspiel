@@ -17,7 +17,7 @@ session_start();
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Signin Template for Bootstrap</title>
+    <title>Tippspiel</title>
 
     <!-- Bootstrap core CSS -->
 		<link href="bootstrap-3.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -58,19 +58,19 @@ session_start();
 				$username = mysql_real_escape_string($username);
 				$password = mysql_real_escape_string($password);
 				
-				$password = hash('sha256', $password);
+				
 				
 				if($username == "")
 				{
 					echo '<p>Bitte Username eingeben</p>';
 				}
-				if($password == "")
+				else if($password == "")
 				{
 					echo '<p>Bitte Password eingeben</p>';
 				}
 				else
 				{
-					
+					$password = hash('sha256', $password);
 					$query = mysql_query("SELECT * FROM users WHERE userName= '$username' AND userPassword='$password'");
 					$result = mysql_num_rows($query);
 					if($result == 1)
@@ -84,7 +84,7 @@ session_start();
 					}
 					else
 					{
-						echo '<p>Falscher Name oder Falsches Passwort </p><a href="../index.php">Zurück</a>';
+						echo '<p>Falscher Name oder Falsches Passwort </p>';
 					}
 				}
 			}

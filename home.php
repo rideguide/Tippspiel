@@ -1,3 +1,10 @@
+<?php
+	
+		session_start();
+		if(isset($_SESSION['loginstatus']) && $_SESSION['loginstatus'] == true)
+		{
+?>
+
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
@@ -30,7 +37,7 @@
 									<li class="active"><a id="navHom" href="#">Home</a></li>
 									<li><a id="navRes" href="#">Resultate</a></li>
 									<li><a id="navTip" href="#">Meine Tipps</a></li>
-									<li><a id="navLog" href="#">Abmelden/Anmelden</a></li>
+									<li><a id="navLog" href="index.php">Abmelden</a></li>
 								</ul>
 							</nav>
 						</div>
@@ -74,3 +81,11 @@
 		
 	</body>
 </html>
+<?php
+			}
+		else
+		{
+			header('location: index.php');
+		}
+	
+?>
