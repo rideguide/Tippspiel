@@ -1,4 +1,4 @@
-DROP DATABASE tippspiel;
+DROP IF EXISTS DATABASE tippspiel;
 CREATE DATABASE tippspiel;
 
 USE tippspiel;
